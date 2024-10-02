@@ -1,5 +1,6 @@
 package com.example.Controller;
 
+
 import com.example.Entities.Aspirante;
 import com.example.Service.AspiranteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/aspirantes")  // Ruta base para el controlador
+@RequestMapping("/api/aspirantes")  
 public class AspiranteController {
 
     @Autowired
@@ -19,21 +20,21 @@ public class AspiranteController {
     @PostMapping
     public ResponseEntity<Void> createAspirante(@RequestBody Aspirante aspirante) {
         aspiranteService.insertAspirante(aspirante);
-        return ResponseEntity.status(HttpStatus.CREATED).build();  // Retorna 201 Created
+        return ResponseEntity.status(HttpStatus.CREATED).build();  
     }
 
     // Endpoint para obtener todos los aspirantes
     @GetMapping
     public ResponseEntity<List<Aspirante>> getAllAspirantes() {
         List<Aspirante> aspirantes = aspiranteService.getAllAspirantes();
-        return ResponseEntity.ok(aspirantes);  // Retorna 200 OK
+        return ResponseEntity.ok(aspirantes);  
     }
 
     // Endpoint para obtener la vista "lista_aspirantes"
     @GetMapping("/lista")
-    public ResponseEntity<List<Aspirante>> getListaAspirantes() {
-        List<Aspirante> listaAspirantes = aspiranteService.getListaAspirantes();
-        return ResponseEntity.ok(listaAspirantes);  // Retorna 200 OK
+    public ResponseEntity<List<Object[]>> getListaAspirantes() {
+        List<Object[]> listaAspirantes = aspiranteService.getListaAspirantes();
+        return ResponseEntity.ok(listaAspirantes); 
     }
 
     // Endpoint para cambiar el estatus de un aspirante

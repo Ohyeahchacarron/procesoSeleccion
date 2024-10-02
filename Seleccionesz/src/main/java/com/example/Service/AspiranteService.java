@@ -24,7 +24,7 @@ public class AspiranteService {
     }
 
     // Método para obtener la vista "lista_aspirantes"
-    public List<Aspirante> getListaAspirantes() {
+    public List<Object[]> getListaAspirantes() {
         return aspiranteRepository.findAllFromVista(); 
     }
 

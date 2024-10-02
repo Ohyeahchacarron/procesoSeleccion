@@ -10,5 +10,5 @@ import com.example.Entities.Aspirante;
 @Repository
 public interface AspiranteRepository extends JpaRepository<Aspirante, Long> {
 	   @Query(value = "SELECT * FROM lista_aspirantes", nativeQuery = true)
-	    List<Aspirante> findAllFromVista();
+	    List<Object[]> findAllFromVista();
 }
